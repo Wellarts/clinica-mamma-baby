@@ -12,6 +12,8 @@ class EditPlanejamentoGinecologico extends EditRecord
 {
     protected static string $resource = PlanejamentoGinecologicoResource::class;
 
+    protected static ?string $title = 'Editar Planejamento Ginecológico';
+
     protected function getHeaderActions(): array
     {
         return [
