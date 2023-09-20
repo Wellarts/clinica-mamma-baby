@@ -42,6 +42,7 @@ class UserResource extends Resource
                     ->dehydrated(fn ($state) => filled($state))
                     ->required(fn (string $context): bool => $context === 'create'),
                 Select::make('roles')
+                    ->label('Função')
                     ->multiple()
                     ->preload()
                     ->relationship('roles', 'name'),
@@ -60,12 +61,12 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('roles.name')
+                    ->label('Função'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('roles.name')
-                    ->label('Função'),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
