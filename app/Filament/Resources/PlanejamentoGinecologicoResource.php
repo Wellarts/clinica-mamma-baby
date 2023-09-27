@@ -127,8 +127,9 @@ class PlanejamentoGinecologicoResource extends Resource
                              ->numeric(),
                         Forms\Components\TextInput::make('altura')
                             ->label('Altura (m)')
-                            ->placeholder('0,00')
-                            //->mask('9,99')
+                            ->hint('Ex. 1.80')
+                            ->placeholder('0.00')
+                          //  ->mask('9.99')
                             ->numeric()
                             ->live(onBlur: true)
                             ->afterStateUpdated(function(Get $get, Set $set, $state) {
@@ -138,6 +139,7 @@ class PlanejamentoGinecologicoResource extends Resource
                             }),
 
                         Forms\Components\TextInput::make('imc')
+                            ->readOnly()
                             ->inputMode('decimal')
                             ->label('IMC (Kg/m²)'),
                         Forms\Components\TextInput::make('pa')
