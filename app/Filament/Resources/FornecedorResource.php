@@ -33,10 +33,12 @@ class FornecedorResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('cpf_cnpj')
+                    ->label('CPF/CNPJ')
                     ->mask(RawJs::make(<<<'JS'
-                                            $input.startsWith('14') || $input.startsWith('18') ? '999.999.999-99' : '99.999.999/9999-99'
-                                        JS))
-                    ->label('CPF/CNPJ'),
+                                    $input.length > 14 ? '99.999.999/9999-99' : '999.999.999-99'
+                                JS))
+                    ->rule('cpf_ou_cnpj')
+                    ->label('CPF/CNPJ'), 
                 Forms\Components\Textarea::make('endereco')
                     ->label('Endereço'),
                 Forms\Components\Select::make('estado_id')
