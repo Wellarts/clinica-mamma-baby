@@ -21,6 +21,7 @@ use App\Models\User;
 use App\Policies\AgendamentoPolicy;
 use App\Policies\AmamentacaoPolicy;
 use App\Policies\ContaPagarPolicy;
+use App\Policies\ContaReceberPolicy;
 use App\Policies\DiagnosticoIntervencaoPolicy;
 use App\Policies\FluxoCaixaPolicy;
 use App\Policies\OrientacaoPacientePolicy;
