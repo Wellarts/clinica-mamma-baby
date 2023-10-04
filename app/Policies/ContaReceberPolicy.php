@@ -21,6 +21,7 @@ class ContaReceberPolicy
     /**
      * Determine whether the user can view the model.
      */
+    
     public function view(User $user, ContasReceber $contasReceber)
     {
         //
