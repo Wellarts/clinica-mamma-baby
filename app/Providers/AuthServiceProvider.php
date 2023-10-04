@@ -49,7 +49,7 @@ class AuthServiceProvider extends ServiceProvider
         AgendarAtendimento::class => AgendamentoPolicy::class,
         Amamentacao::class => AmamentacaoPolicy::class,
         ContasPagar::class => ContaPagarPolicy::class,
-        ContasReceber::class => ContaPagarPolicy::class,
+        ContasReceber::class => ContaReceberPolicy::class,
         DiagnosticoIntervencao::class => DiagnosticoIntervencaoPolicy::class,
         FluxoCaixa::class => FluxoCaixaPolicy::class,
         OrientacaoPaciente::class => OrientacaoPacientePolicy::class,
@@ -61,8 +61,8 @@ class AuthServiceProvider extends ServiceProvider
         Receituario::class => ReceituarioPolicy::class,
         Permission::class => PermissionPolicy::class,
         Role::class => RolePolicy::class,
-        
-        
+
+
     ];
 
     /**
