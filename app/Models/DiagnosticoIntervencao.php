@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class DiagnosticoIntervencao extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $fillable = [
        'descricao',
@@ -16,5 +18,13 @@ class DiagnosticoIntervencao extends Model
 
     public function PlanejamentoGinecologico() {
         $this->hasMany(PlanejamentoGinecologico::class);
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly(['*'])
+        ->logOnlyDirty();
+        // Chain fluent methods for configuration options
     }
 }

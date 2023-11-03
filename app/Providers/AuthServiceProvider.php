@@ -18,6 +18,7 @@ use App\Models\PlanejamentoImplementacao;
 use App\Models\PlanejamentoReprodutivo;
 use App\Models\Receituario;
 use App\Models\User;
+use App\Policies\ActivityPolicy;
 use App\Policies\AgendamentoPolicy;
 use App\Policies\AmamentacaoPolicy;
 use App\Policies\ContaPagarPolicy;
@@ -37,6 +38,7 @@ use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Activitylog\Models\Activity;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -62,6 +64,7 @@ class AuthServiceProvider extends ServiceProvider
         Receituario::class => ReceituarioPolicy::class,
         Permission::class => PermissionPolicy::class,
         Role::class => RolePolicy::class,
+        Activity::class => ActivityPolicy::class,
 
 
     ];

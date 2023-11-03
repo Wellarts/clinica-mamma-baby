@@ -64,6 +64,9 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->resources([
+                config('filament-logger.activity_resource')
+            ])
             ->authMiddleware([
                 Authenticate::class,
             ]);

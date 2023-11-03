@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Fornecedor extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $fillable = [
         'nome',
@@ -35,4 +37,11 @@ class Fornecedor extends Model
         return $this->hasMany(ContasPagar::class);
     }
 
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+        ->logOnly(['*'])
+        ->logOnlyDirty();
+        // Chain fluent methods for configuration options
+    }
 }
