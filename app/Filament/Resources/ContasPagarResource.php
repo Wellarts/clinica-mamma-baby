@@ -111,9 +111,11 @@ class ContasPagarResource extends Resource
                     ),
 
                 Forms\Components\TextInput::make('valor_parcela')
+                      ->label('Valor Parcela')
                       ->numeric()
                       ->required(),
                 Forms\Components\TextInput::make('valor_pago')
+                    ->label('Valor Pago')
                     ->numeric(),
                 Forms\Components\Textarea::make('obs')
                     ->label('Observações'),
